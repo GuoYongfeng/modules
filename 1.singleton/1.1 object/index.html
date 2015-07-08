@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../../zepto.js"></script>
+</head>
+<body>
+
+<input type="button" class="btn" value="快戳我">
+<script type="text/javascript">
+	
+	/**
+	 * object index
+	 * @type {Object}
+	 */
+	var index = {
+		/**
+		 * 缓存DOM对象
+		 * @type {Object}
+		 */
+		dom: {
+			btn: $('.btn')
+		},
+
+		/**
+		 * 基本数据
+		 * @type {Object}
+		 */
+		data: {
+			txt: '干的漂亮'
+		},
+
+		/**
+		 * @return {[type]}
+		 */
+		bindEvent: function(){
+			var _this = this;
+
+			this.dom.btn.on('click', function( e ){
+				alert(_this.data.txt);
+			});
+		},
+
+		/**
+		 * @return {[type]}
+		 */
+		init: function(){
+			this.bindEvent();
+		}
+	};
+
+	// 执行初始化
+	index.init();
+
+</script>
+</body>
+</html>
