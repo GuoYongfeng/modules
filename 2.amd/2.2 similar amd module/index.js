@@ -7,8 +7,13 @@
 (function( root, factory ) {
     var modules = {},
 
-        // 内部require, 简单不完全实现。
-        // https://github.com/amdjs/amdjs-api/wiki/require
+        /**
+         * require方法模拟
+         * @param deps
+         * @param callback
+         * @returns {*}
+         * @private
+         */
         _require = function( deps, callback ) {
             var args, len, i;
 
@@ -25,7 +30,13 @@
             }
         },
 
-        // 内部define，暂时不支持不指定id.
+        /**
+         * define方法模拟，暂时不支持不指定id
+         * @param id
+         * @param deps
+         * @param factory
+         * @private
+         */
         _define = function( id, deps, factory ) {
             if ( arguments.length === 2 ) {
                 factory = deps;
@@ -37,7 +48,12 @@
             });
         },
 
-        // 设置module, 兼容CommonJs写法。
+        /**
+         * 设置module, 兼容CommonJs写法。
+         * @param id
+         * @param factory
+         * @param args
+         */
         setModule = function( id, factory, args ) {
             var module = {
                     exports: factory
@@ -53,7 +69,11 @@
             modules[ id ] = module.exports;
         },
 
-        // 根据id获取module
+        /**
+         * 获取module
+         * @param id
+         * @returns {*}
+         */
         getModule = function( id ) {
             var module = modules[ id ] || root[ id ];
 
@@ -64,7 +84,11 @@
             return module;
         },
 
-        // 将所有modules，将路径ids装换成对象。
+        /**
+         * 将所有modules的路径ids装换成对象
+         * @param obj
+         * @returns {*}
+         */
         exportsTo = function( obj ) {
             var key, host, parts, part, last, ucFirst;
 

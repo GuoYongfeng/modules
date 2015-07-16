@@ -1,0 +1,1 @@
+({baseUrl:"./",dir:"./build",optimize:"uglify",optimizeCss:"standard",cssImportIgnore:null,inlineText:!0,useStrict:!1,modules:[{name:"main"},{name:"views/main",override:{pragmas:{fooExclude:!0}}},{name:"views/list/main"}]});

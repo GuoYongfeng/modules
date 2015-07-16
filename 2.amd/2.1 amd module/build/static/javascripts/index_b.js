@@ -1,0 +1,1 @@
+define(["./index_a.js"],function(e){function t(){e(),alert("module B")}return t});
